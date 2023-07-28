@@ -13,6 +13,7 @@
 \n  { return EOL; }
 "(" { return OP; }
 ")" { return CP; }
+"//".* { /* ignore comments */ }
 [ \t] { /* ignore whitespace */ }
 .   { printf("Mystery character %c\n", *yytext); }
 %%
