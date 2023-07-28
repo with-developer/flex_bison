@@ -10,7 +10,9 @@
 "/" { return DIV; }
 "|" { return ABS; }
 [0-9]+ { yylval = atoi(yytext); return NUMBER; }
-\n { return EOL; }
+\n  { return EOL; }
+"(" { return OP; }
+")" { return CP; }
 [ \t] { /* ignore whitespace */ }
-. { printf("Mystery character %c\n", *yytext); }
+.   { printf("Mystery character %c\n", *yytext); }
 %%
