@@ -1,0 +1,3 @@
+*.c linguist-vendored
+*.l linguist-vendored=false
+*.y linguist-vendored=false
