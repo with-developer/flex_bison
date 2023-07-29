@@ -4,15 +4,22 @@
 #include <stdio.h>
 %}
 
+%union {
+    double double_val;
+    /* Add func: NUMBER 변수를 실수형으로 처리하기 위해 double타입의 double_val을 union으로 선언
+        flex_and_bison 71페이지를 참고했습니다. */ 
+}
+
 /* declare tokens */
-%token NUMBER
+%token <double_val> NUMBER // NUMBER 토큰의 값이 %union 내의 double_val 필드에 저장되도록 합니다.
 %token ADD SUB MUL DIV ABS
 %token EOL
 %token OP CP
+%type <double_val> exp factor term // exp, factor, term 함수의 반환값이 %union 내의 double_val 필드에 저장되도록 합니다.
 
 %%
 calclist : /* nothing */
-    | calclist exp EOL { printf("= %d\n", $2); }
+    | calclist exp EOL { printf("= %lf\n", $2); } // %lf로 결과값을 출력합니다.
     | calclist EOL {}
     ;
 
