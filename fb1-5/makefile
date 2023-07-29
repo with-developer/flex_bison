@@ -4,4 +4,4 @@ fb1-5:	fb1-5.l fb1-5.y
 	gcc -o $@ fb1-5.tab.c lex.yy.c -lfl
 
 clean:
-	rm fb1-5.tab.* fb1-5.exe
+	rm fb1-5.tab.* fb1-5.exe lex.yy.c
